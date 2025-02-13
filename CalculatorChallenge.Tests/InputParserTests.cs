@@ -50,10 +50,17 @@ namespace CalculatorChallenge.Tests
         }
 
         [Test]
-        public void Parse_CustomSingleDelimiter_ReturnsListWithThreeNumbers()
+        public void Parse_CustomSingleDelimiter_ReturnsListWithTwoNumbers()
         {
             var result = InputParser.Parse("//#\n2#5");
-            CollectionAssert.AreEqual(new List<int> { 2, 5}, result);
+            CollectionAssert.AreEqual(new List<int> { 2, 5 }, result);
+        }
+
+        [Test]
+        public void Parse_CustomLongDelimiter_ReturnsListWithThreeNumbers()
+        {
+            var result = InputParser.Parse("//[***]\n11***22***33");
+            CollectionAssert.AreEqual(new List<int> { 11, 22, 33 }, result);
         }
     }
 }

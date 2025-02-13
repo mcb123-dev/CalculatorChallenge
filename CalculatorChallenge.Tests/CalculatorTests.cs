@@ -42,5 +42,11 @@ namespace CalculatorChallenge.Tests
         {
             Assert.That(Calculator.Add("//#\n2#5"), Is.EqualTo(7));
         }
+
+        [Test]
+        public void Add_LongCustomDelimiter_ReturnsSum()
+        {
+            Assert.That(Calculator.Add("//[***]\n11***22***33"), Is.EqualTo(66));
+        }
     }
 }
