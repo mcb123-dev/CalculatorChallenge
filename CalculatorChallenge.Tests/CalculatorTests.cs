@@ -11,5 +11,11 @@ namespace CalculatorChallenge.Tests
         {
             Assert.That(Calculator.Add(string.Empty), Is.EqualTo(0));
         }
+
+        [Test]
+        public void Add_MultipleNumbers_ReturnsTheirSum()
+        {
+            Assert.That(Calculator.Add("1,2,3,4,5,6,7,8,9,10,11,12"), Is.EqualTo(78));
+        }
     }
 }
