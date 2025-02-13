@@ -41,5 +41,12 @@ namespace CalculatorChallenge.Tests
             var result = InputParser.Parse("5,abc");
             CollectionAssert.AreEqual(new List<int> { 5, 0 }, result);
         }
+
+        [Test]
+        public void Parse_NewlineDelimiter_ReturnsListWithThreeNumbers()
+        {
+            var result = InputParser.Parse("1\n2,3");
+            CollectionAssert.AreEqual(new List<int> { 1, 2, 3 }, result);
+        }
     }
 }

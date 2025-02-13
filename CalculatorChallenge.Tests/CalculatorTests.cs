@@ -17,5 +17,11 @@ namespace CalculatorChallenge.Tests
         {
             Assert.That(Calculator.Add("1,2,3,4,5,6,7,8,9,10,11,12"), Is.EqualTo(78));
         }
+
+        [Test]
+        public void Add_NewlineDelimiter_ReturnsSum()
+        {
+            Assert.That(Calculator.Add("1\n2,3"), Is.EqualTo(6));
+        }
     }
 }
