@@ -6,7 +6,7 @@ namespace CalculatorChallenge.ConsoleApp
     {
         /// <summary>
         /// Parses comma, newline, single custom delimiter (ex. //{delimiter}\n{numbers}),
-        /// or long custom delimiter (ex. //[{delimiter}]\n{numbers}) separated numbers from a string input.
+        /// or multiple long custom delimiter(s) (ex. //[delimiter1][delimiter2]...\n{numbers}) separated numbers from a string input.
         /// </summary>
         /// <param name="input"></param>
         /// <returns>List of integers</returns>
@@ -17,26 +17,28 @@ namespace CalculatorChallenge.ConsoleApp
             var match = Regex.Match(input, @"^//(.)\n(.*)|^//\[(.*?)\]\n(.*)");
             if (match.Success)
             {
-                var delimiter = string.Empty;
                 if (match.Groups[1].Success) //single delimiter
                 {
-                    delimiter = match.Groups[1].Value;
+                    delimiters.Add(match.Groups[1].Value);
                     input = match.Groups[2].Value;
                 }
-                else if (match.Groups[3].Success) //long delimiter
+                else if (match.Groups[3].Success) //long delimiters
                 {
-                    delimiter = match.Groups[3].Value;
+                    var matches = Regex.Matches(input, @"\[(.*?)\]");
+                    foreach (Match longDelimiterMatch in matches)
+                    {
+                        if (longDelimiterMatch.Groups[1].Success)
+                            delimiters.Add(longDelimiterMatch.Groups[1].Value);
+                    }
+
                     input = match.Groups[4].Value;
                 }
-
-                delimiters.Add(delimiter);
             }
 
             // Split the numbers using the delimiters
             var numbers = input.Split(delimiters.ToArray(), StringSplitOptions.None);
 
-            return numbers.Select(n => int.TryParse(n, out var value) ? value : 0).ToList();
+            return numbers.Select(number => int.TryParse(number, out var value) ? value : 0).ToList();
         }
-
     }
 }

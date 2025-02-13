@@ -62,5 +62,12 @@ namespace CalculatorChallenge.Tests
             var result = InputParser.Parse("//[***]\n11***22***33");
             CollectionAssert.AreEqual(new List<int> { 11, 22, 33 }, result);
         }
+
+        [Test]
+        public void Add_MultipleCustomDelimiters_ReturnsListWithFourNumbers()
+        {
+            var result = InputParser.Parse("//[*][!!][r9r]\n11r9r22*hh*33!!44");
+            CollectionAssert.AreEqual(new List<int> { 11, 22, 0, 33, 44 }, result);
+        }
     }
 }
