@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CalculatorChallenge.ConsoleApp
+﻿namespace CalculatorChallenge.ConsoleApp
 {
     // Class responsible for validating numbers
     public class NumberValidator
@@ -21,6 +15,16 @@ namespace CalculatorChallenge.ConsoleApp
             {
                 throw new ArgumentException($"Negative numbers not allowed: {string.Join(",", negatives)}");
             }
+        }
+
+        /// <summary>
+        /// Removes numbers greater than 1000
+        /// </summary>
+        /// <param name="numbers"></param>
+        /// <returns>List of integers</returns>
+        public static List<int> FilterValidNumbers(List<int> numbers)
+        {
+            return numbers.Where(n => n <= 1000).ToList();
         }
     }
 }

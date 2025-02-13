@@ -12,6 +12,9 @@
             // Validate the numbers (check for negatives)
             NumberValidator.Validate(numbers);
 
+            // Filter out numbers > 1000
+            numbers = NumberValidator.FilterValidNumbers(numbers);
+
             // Return the sum of the valid numbers
             return numbers.Sum();
         }

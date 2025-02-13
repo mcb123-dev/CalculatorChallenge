@@ -30,5 +30,11 @@ namespace CalculatorChallenge.Tests
             var ex = Assert.Throws<ArgumentException>(() => Calculator.Add("4,-3"));
             Assert.That(ex?.Message, Is.EqualTo("Negative numbers not allowed: -3"));
         }
+
+        [Test]
+        public void Add_NumbersGreaterThan1000_Ignored()
+        {
+            Assert.That(Calculator.Add("2,5001,6"), Is.EqualTo(8));
+        }
     }
 }

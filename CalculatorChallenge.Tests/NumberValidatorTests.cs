@@ -1,11 +1,5 @@
 ﻿using CalculatorChallenge.ConsoleApp;
 using NUnit.Framework;
-using NUnit.Framework.Legacy;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalculatorChallenge.Tests
 {
@@ -18,6 +12,12 @@ namespace CalculatorChallenge.Tests
         {
             var ex = Assert.Throws<ArgumentException>(() => NumberValidator.Validate([4,-3]));
             Assert.That(ex?.Message, Is.EqualTo("Negative numbers not allowed: -3"));
+        }
+
+        [Test]
+        public void Add_NumbersGreaterThan1000_Ignored()
+        {
+            Assert.That(Calculator.Add("2,5001,6"), Is.EqualTo(8));
         }
     }
 }
