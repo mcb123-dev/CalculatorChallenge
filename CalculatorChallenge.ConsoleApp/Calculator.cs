@@ -9,6 +9,9 @@
             // Parse the input string
             var numbers = InputParser.Parse(input);
 
+            // Validate the numbers (check for negatives)
+            NumberValidator.Validate(numbers);
+
             // Return the sum of the valid numbers
             return numbers.Sum();
         }

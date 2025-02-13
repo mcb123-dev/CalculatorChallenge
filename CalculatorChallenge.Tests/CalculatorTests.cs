@@ -23,5 +23,12 @@ namespace CalculatorChallenge.Tests
         {
             Assert.That(Calculator.Add("1\n2,3"), Is.EqualTo(6));
         }
+
+        [Test]
+        public void Add_NegativeNumbers_ThrowsException()
+        {
+            var ex = Assert.Throws<ArgumentException>(() => Calculator.Add("4,-3"));
+            Assert.That(ex?.Message, Is.EqualTo("Negative numbers not allowed: -3"));
+        }
     }
 }
