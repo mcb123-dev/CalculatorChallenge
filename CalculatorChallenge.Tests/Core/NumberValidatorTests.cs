@@ -1,7 +1,7 @@
-﻿using CalculatorChallenge.ConsoleApp;
+﻿using CalculatorChallenge.ConsoleApp.Core;
 using NUnit.Framework;
 
-namespace CalculatorChallenge.Tests
+namespace CalculatorChallenge.Tests.Core
 {
     [TestFixture]
     public class NumberValidatorTests
@@ -10,7 +10,7 @@ namespace CalculatorChallenge.Tests
         [Test]
         public void Validate_NegativeNumbers_ThrowsException()
         {
-            var ex = Assert.Throws<ArgumentException>(() => NumberValidator.Validate([4,-3]));
+            var ex = Assert.Throws<ArgumentException>(() => NumberValidator.Validate([4, -3]));
             Assert.That(ex?.Message, Is.EqualTo("Negative numbers not allowed: -3"));
         }
 

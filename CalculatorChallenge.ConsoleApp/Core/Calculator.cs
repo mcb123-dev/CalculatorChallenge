@@ -1,4 +1,4 @@
-﻿namespace CalculatorChallenge.ConsoleApp
+﻿namespace CalculatorChallenge.ConsoleApp.Core
 {
     // Calculator class that handles addition logic
     public class Calculator

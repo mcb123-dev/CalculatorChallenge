@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace CalculatorChallenge.ConsoleApp
+namespace CalculatorChallenge.ConsoleApp.Core
 {
     public class InputParser
     {

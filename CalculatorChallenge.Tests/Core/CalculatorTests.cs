@@ -1,7 +1,7 @@
-﻿using CalculatorChallenge.ConsoleApp;
+﻿using CalculatorChallenge.ConsoleApp.Core;
 using NUnit.Framework;
 
-namespace CalculatorChallenge.Tests
+namespace CalculatorChallenge.Tests.Core
 {
     [TestFixture]
     public class CalculatorTests

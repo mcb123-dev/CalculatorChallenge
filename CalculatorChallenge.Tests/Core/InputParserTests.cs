@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework.Legacy;
 using NUnit.Framework;
-using CalculatorChallenge.ConsoleApp;
+using CalculatorChallenge.ConsoleApp.Core;
 
-namespace CalculatorChallenge.Tests
+namespace CalculatorChallenge.Tests.Core
 {
     [TestFixture]
     public class InputParserTests

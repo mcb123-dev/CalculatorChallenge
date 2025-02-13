@@ -1,4 +1,4 @@
-﻿namespace CalculatorChallenge.ConsoleApp
+﻿namespace CalculatorChallenge.ConsoleApp.Core
 {
     // Class responsible for validating numbers
     public class NumberValidator
