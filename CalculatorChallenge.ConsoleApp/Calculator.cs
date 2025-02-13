@@ -1,5 +1,6 @@
 ﻿namespace CalculatorChallenge.ConsoleApp
 {
+    // Calculator class that handles addition logic
     public class Calculator
     {
         public static int Add(string input)

@@ -36,5 +36,11 @@ namespace CalculatorChallenge.Tests
         {
             Assert.That(Calculator.Add("2,5001,6"), Is.EqualTo(8));
         }
+
+        [Test]
+        public void Add_CustomDelimiter_ReturnsSum()
+        {
+            Assert.That(Calculator.Add("//#\n2#5"), Is.EqualTo(7));
+        }
     }
 }
